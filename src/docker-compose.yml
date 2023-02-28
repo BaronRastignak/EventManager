@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  identityservice:
+    image: ${DOCKER_REGISTRY-}identityservice
+    build:
+      context: .
+      dockerfile: IdentityService/Dockerfile
+
+  eventmanagerservice:
+    image: ${DOCKER_REGISTRY-}eventmanagerservice
+    build:
+      context: .
+      dockerfile: EventManager/EventManagerService/Dockerfile
+    depends_on:
+      - identityservice
+
