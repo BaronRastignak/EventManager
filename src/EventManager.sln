@@ -7,9 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityService", "Identity
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EventManager", "EventManager", "{B76D971B-9C5A-453C-99E2-A381CF4023EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventManagerService", "EventManager\EventManagerService\EventManagerService.csproj", "{3E25478F-A016-4019-9EFE-5F12259AF322}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventManagerService", "EventManager\EventManagerService\EventManagerService.csproj", "{3E25478F-A016-4019-9EFE-5F12259AF322}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{B1063C3C-B684-49D6-B1C7-8FDFF98D1028}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{CA2ACF30-22C3-43FF-8B38-E6129EFF4F08}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RepositorySupport", "Infrastructure\RepositorySupport\RepositorySupport.csproj", "{42F91D97-BB68-47F2-9D54-2F5E080FF3BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,12 +33,17 @@ Global
 		{B1063C3C-B684-49D6-B1C7-8FDFF98D1028}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1063C3C-B684-49D6-B1C7-8FDFF98D1028}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1063C3C-B684-49D6-B1C7-8FDFF98D1028}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42F91D97-BB68-47F2-9D54-2F5E080FF3BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42F91D97-BB68-47F2-9D54-2F5E080FF3BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42F91D97-BB68-47F2-9D54-2F5E080FF3BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42F91D97-BB68-47F2-9D54-2F5E080FF3BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3E25478F-A016-4019-9EFE-5F12259AF322} = {B76D971B-9C5A-453C-99E2-A381CF4023EA}
+		{42F91D97-BB68-47F2-9D54-2F5E080FF3BE} = {CA2ACF30-22C3-43FF-8B38-E6129EFF4F08}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EAFAE49D-8EB2-4F41-B9C8-938514D952BB}
