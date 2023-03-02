@@ -1,6 +1,9 @@
 version: '3.4'
 
 services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+
   identityservice:
     image: ${DOCKER_REGISTRY-}identityservice
     build:
@@ -13,5 +16,6 @@ services:
       context: .
       dockerfile: EventManager/EventManagerService/Dockerfile
     depends_on:
+      - mssql
       - identityservice
 

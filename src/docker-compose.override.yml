@@ -1,23 +1,36 @@
 version: '3.4'
 
 services:
+  mssql:
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=evtMgrP@ss
+    ports:
+      - "5433:1433"
+    volumes:
+      - event-manager-sqldata:/var/opt/mssql
+
   identityservice:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
     ports:
-      - "80"
-      - "443"
+      - "5101:443"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+
   eventmanagerservice:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ConnectionString=Server=mssql;Database=EventManager_Main;User Id=sa;Password=evtMgrP@ss;TrustServerCertificate=true
     ports:
-      - "80"
-      - "443"
+      - "5102:443"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+
+volumes:
+  event-manager-sqldata:
+    external: false

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-	  <TargetFramework>net6.0</TargetFramework>
+	  <TargetFramework>net7.0</TargetFramework>
 	  <ImplicitUsings>enable</ImplicitUsings>
 	  <UserSecretsId>6e11798c-e702-4a37-a474-bbed0d989fef</UserSecretsId>
 	  <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
@@ -9,17 +9,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Duende.IdentityServer.AspNetIdentity" Version="6.2.0" />
+    <PackageReference Include="Duende.IdentityServer.AspNetIdentity" Version="6.2.3" />
+    <PackageReference Include="Duende.IdentityServer.EntityFramework.Storage" Version="6.2.3" />
 
-	<PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="6.0.0" />
+	<PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="7.0.3" />
 
 	<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.2" />
-	<PackageReference Include="Serilog.AspNetCore" Version="6.0.0" />
+	<PackageReference Include="Serilog.AspNetCore" Version="6.1.0" />
 
-	<PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.0" />
-	<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.0" />
-	<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.0" />
-	<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0" />
+	<PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.3" />
+	<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.3" />
+	<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.3" />
+	<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.3">
+	  <PrivateAssets>all</PrivateAssets>
+	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	</PackageReference>
   </ItemGroup>
 </Project>
