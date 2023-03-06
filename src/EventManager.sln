@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventManager.Domain", "Even
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventManager.Persistence", "EventManager\EventManager.Persistence\EventManager.Persistence.csproj", "{4926CF76-EBB4-4EFE-BDE9-6B6AB23A4D5F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{DB43F512-2A1A-4130-81B1-99FE0930616E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +56,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{C1364821-D5F1-4539-876D-2476E42CE13E} = {DB43F512-2A1A-4130-81B1-99FE0930616E}
 		{3E25478F-A016-4019-9EFE-5F12259AF322} = {B76D971B-9C5A-453C-99E2-A381CF4023EA}
 		{42F91D97-BB68-47F2-9D54-2F5E080FF3BE} = {CA2ACF30-22C3-43FF-8B38-E6129EFF4F08}
 		{8E491FCC-2303-48AF-A253-BF51D94E09FB} = {B76D971B-9C5A-453C-99E2-A381CF4023EA}

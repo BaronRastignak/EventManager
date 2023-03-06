@@ -9,6 +9,8 @@ services:
     build:
       context: .
       dockerfile: IdentityService/Dockerfile
+    depends_on:
+      - mssql
 
   eventmanagerservice:
     image: ${DOCKER_REGISTRY-}eventmanagerservice

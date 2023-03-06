@@ -22,7 +22,7 @@ try
 
     // this seeding is only for the template to bootstrap the DB and users.
     // in production you will likely want a different approach.
-    if (args.Contains("/seed"))
+    if (bool.TryParse(app.Configuration["SeedData"], out var seedData) && seedData)
     {
         Log.Information("Seeding database...");
         SeedData.EnsureSeedData(app);
@@ -32,7 +32,8 @@ try
 
     app.Run();
 }
-catch (Exception ex) when (ex.GetType().Name is not "StopTheHostException") // https://github.com/dotnet/runtime/issues/60600
+// https://github.com/dotnet/runtime/issues/60600
+catch (Exception ex) when (ex.GetType().Name is not "StopTheHostException" and not "HostAbortedException")
 {
     Log.Fatal(ex, "Unhandled exception");
 }

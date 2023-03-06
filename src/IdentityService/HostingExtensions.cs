@@ -11,10 +11,17 @@ internal static class HostingExtensions
 {
     public static WebApplication ConfigureServices(this WebApplicationBuilder builder)
     {
+        var sqlConnectionString = builder.Configuration["ConnectionString"];
+        var migrationsAssembly = typeof(ApplicationDbContext).Assembly.GetName().Name;
+
         builder.Services.AddRazorPages();
 
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+            options.UseSqlServer(sqlConnectionString, sql =>
+            {
+                sql.MigrationsAssembly(migrationsAssembly);
+                sql.EnableRetryOnFailure(15, TimeSpan.FromSeconds(30), null);
+            }));
 
         builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -31,9 +38,31 @@ internal static class HostingExtensions
                 // see https://docs.duendesoftware.com/identityserver/v6/fundamentals/resources/
                 options.EmitStaticAudienceClaim = true;
             })
-            .AddInMemoryIdentityResources(Config.IdentityResources)
-            .AddInMemoryApiScopes(Config.ApiScopes)
-            .AddInMemoryClients(Config.Clients)
+            .AddConfigurationStore(options =>
+            {
+                options.ConfigureDbContext = dbOptionsBuilder =>
+                {
+                    dbOptionsBuilder.UseSqlServer(sqlConnectionString, sql =>
+                    {
+                        sql.MigrationsAssembly(migrationsAssembly);
+                        sql.EnableRetryOnFailure(15, TimeSpan.FromSeconds(30), null);
+                    });
+                };
+            })
+            .AddConfigurationStoreCache()
+            .AddOperationalStore(options =>
+            {
+                options.ConfigureDbContext = dbOptionsBuilder =>
+                {
+                    dbOptionsBuilder.UseSqlServer(sqlConnectionString, sql =>
+                    {
+                        sql.MigrationsAssembly(migrationsAssembly);
+                        sql.EnableRetryOnFailure(15, TimeSpan.FromSeconds(30), null);
+                    });
+                };
+
+                options.EnableTokenCleanup = true;
+            })
             .AddAspNetIdentity<ApplicationUser>();
         
         builder.Services.AddAuthentication()
@@ -44,8 +73,8 @@ internal static class HostingExtensions
                 // register your IdentityServer with Google at https://console.developers.google.com
                 // enable the Google+ API
                 // set the redirect URI to https://localhost:5001/signin-google
-                options.ClientId = "copy client ID from Google here";
-                options.ClientSecret = "copy client secret from Google here";
+                options.ClientId = builder.Configuration["ExternalProviders:Google:ClientId"];
+                options.ClientSecret = builder.Configuration["ExternalProviders:Google:ClientId"];
             });
 
         return builder.Build();

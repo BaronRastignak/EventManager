@@ -14,6 +14,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ConnectionString=Server=mssql;Database=EventManager_Identity;User Id=sa;Password=evtMgrP@ss;TrustServerCertificate=true
     ports:
       - "5101:443"
     volumes:
@@ -25,6 +26,7 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
       - ConnectionString=Server=mssql;Database=EventManager_Main;User Id=sa;Password=evtMgrP@ss;TrustServerCertificate=true
+      - IdentityUrl=https://identityservice
     ports:
       - "5102:443"
     volumes:

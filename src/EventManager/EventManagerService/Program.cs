@@ -1,6 +1,7 @@
 using EventManager.Domain.Events;
 using EventManager.Persistence.Repositories;
 using EventManagerService.Extensions;
+using EventManagerService.Policy;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,9 @@ builder.Services.AddScoped<ISocialEventRepository, SocialEventRepository>();
 
 builder.Services.AddDbContexts(builder.Configuration);
 
+builder.Services.AddJWTBearerAuthentication(builder.Configuration);
+builder.Services.AddApiScopeAuthorization();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -26,9 +30,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllers();
+app.MapControllers()
+    .RequireAuthorization(AuthorizationPolicy.ApiScope().Name);
 
 app.Run();
 
