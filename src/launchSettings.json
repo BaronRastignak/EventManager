@@ -5,7 +5,9 @@
       "commandVersion": "1.0",
       "serviceActions": {
         "identityservice": "StartDebugging",
-        "eventmanagerservice": "StartDebugging"
+        "eventmanagerservice": "StartDebugging",
+        "eventmanager-webclient": "StartWithoutDebugging",
+        "mssql": "StartWithoutDebugging"
       }
     }
   }

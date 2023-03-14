@@ -13,6 +13,7 @@
 **/*.jfm
 **/azds.yaml
 **/bin
+**/build
 **/charts
 **/docker-compose*
 **/Dockerfile*
@@ -23,3 +24,5 @@
 **/values.dev.yaml
 LICENSE
 README.md
+!**/package*.json
+!**/nginx.conf

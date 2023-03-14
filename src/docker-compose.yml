@@ -21,3 +21,12 @@ services:
       - mssql
       - identityservice
 
+  eventmanager-webclient:
+    image: ${DOCKER_REGISTRY-}eventmanager-webclient
+    build:
+      context: .
+      dockerfile: Client/EventManager.WebClient/Dockerfile
+    depends_on:
+      - identityservice
+      - eventmanagerservice
+

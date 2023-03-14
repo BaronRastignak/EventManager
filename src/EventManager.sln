@@ -21,6 +21,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventManager.Persistence", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{DB43F512-2A1A-4130-81B1-99FE0930616E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{45141E6F-31FC-4B9D-9085-B3C2B299D145}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "EventManager.WebClient", "Client\EventManager.WebClient\EventManager.WebClient.njsproj", "{CC07F071-0D0D-4B23-92C8-CF65812CB8C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,10 @@ Global
 		{4926CF76-EBB4-4EFE-BDE9-6B6AB23A4D5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4926CF76-EBB4-4EFE-BDE9-6B6AB23A4D5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4926CF76-EBB4-4EFE-BDE9-6B6AB23A4D5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC07F071-0D0D-4B23-92C8-CF65812CB8C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC07F071-0D0D-4B23-92C8-CF65812CB8C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC07F071-0D0D-4B23-92C8-CF65812CB8C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC07F071-0D0D-4B23-92C8-CF65812CB8C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +69,7 @@ Global
 		{42F91D97-BB68-47F2-9D54-2F5E080FF3BE} = {CA2ACF30-22C3-43FF-8B38-E6129EFF4F08}
 		{8E491FCC-2303-48AF-A253-BF51D94E09FB} = {B76D971B-9C5A-453C-99E2-A381CF4023EA}
 		{4926CF76-EBB4-4EFE-BDE9-6B6AB23A4D5F} = {B76D971B-9C5A-453C-99E2-A381CF4023EA}
+		{CC07F071-0D0D-4B23-92C8-CF65812CB8C5} = {45141E6F-31FC-4B9D-9085-B3C2B299D145}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EAFAE49D-8EB2-4F41-B9C8-938514D952BB}
