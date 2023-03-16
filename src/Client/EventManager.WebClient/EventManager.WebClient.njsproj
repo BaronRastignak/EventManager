@@ -5,6 +5,7 @@
     <Name>EventManager.WebClient</Name>
     <RootNamespace>EventManager.WebClient</RootNamespace>
     <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
+    <JavaScriptTestFramework>Jest</JavaScriptTestFramework>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -12,14 +13,14 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>cc07f071-0d0d-4b23-92c8-cf65812cb8c5</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>npm start</StartupFile>
+    <StartupFile>npm run dev</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
-    <NodejsPort>3000</NodejsPort>
+    <NodejsPort>5100</NodejsPort>
     <StartWebBrowser>True</StartWebBrowser>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -34,31 +35,34 @@
       <DependentUpon>Dockerfile</DependentUpon>
     </Content>
     <Content Include=".gitignore" />
+    <Content Include="index.html" />
+    <Content Include="package-lock.json" />
+    <Content Include="package.json" />
+    <Content Include="public\vite.svg" />
+    <Content Include="src\assets\react.svg" />
+    <Content Include="src\components\App.const.jsx">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="src\components\App.jsx" />
+    <Content Include="src\main.jsx" />
+    <Content Include="vite.config.js" />
     <None Include="Dockerfile" />
     <Content Include="nginx.conf">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="package-lock.json" />
-    <Content Include="package.json" />
-    <Content Include="public\favicon.ico" />
-    <Content Include="public\index.html" />
-    <Content Include="public\logo192.png" />
-    <Content Include="public\logo512.png" />
-    <Content Include="public\manifest.json" />
-    <Content Include="public\robots.txt" />
-    <Content Include="README.md" />
-    <Content Include="src\App.css" />
-    <Content Include="src\App.js" />
-    <Content Include="src\App.test.js" />
-    <Content Include="src\index.css" />
-    <Content Include="src\index.js" />
-    <Content Include="src\logo.svg" />
-    <Content Include="src\reportWebVitals.js" />
-    <Content Include="src\setupTests.js" />
+    <Content Include=".env" />
+    <Content Include=".env.development">
+      <DependentUpon>.env</DependentUpon>
+    </Content>
+    <Content Include=".env.production">
+      <DependentUpon>.env</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="public\" />
     <Folder Include="src\" />
+    <Folder Include="src\assets\" />
+    <Folder Include="src\components\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
   <ProjectExtensions>
